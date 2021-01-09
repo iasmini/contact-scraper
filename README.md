@@ -41,16 +41,6 @@ instance.scrape()
 
 Results get written as a list of JSON objects in output.json
 
-#### Print Results
-```python
-import json
-
-with open('output.json', 'r') as raw_output:
-    data = raw_output.read()
-    output = json.loads(data)
-
-print(json.dumps(output, indent=2))
-```
 Json objects are stored in the following format
 ```python
 [
