@@ -12,3 +12,4 @@ class ContactInfo(scrapy.Item):
     url = scrapy.Field()
     numbers = scrapy.Field()
     emails = scrapy.Field()
+    logos = scrapy.Field()
