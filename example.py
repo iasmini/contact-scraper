@@ -2,10 +2,11 @@
 
 from contactscraper.controller import Controller
 
-instance = Controller(starting_urls=['https://www.silexsistemas.com.br/'],
+instance = Controller(starting_urls=['https://www.python.org/'],
                       scrape_numbers=True,
                       scrape_emails=True,
                       scrape_logos=True,
-                      region="BR")
+                      region="US",
+                      max_results=2)
 
 instance.scrape()

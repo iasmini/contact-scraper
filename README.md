@@ -23,11 +23,12 @@ To install Scrapy on Ubuntu (or Ubuntu-based) systems, you need to install these
 ```python
 from contactscraper.controller import Controller
 
-instance = Controller(starting_urls=['https://www.python.org/'], 
-                       scrape_numbers=True,
-                       scrape_emails=True,
-                       region="US",
-                       max_results=2)
+instance = Controller(starting_urls=['https://www.python.org/'],
+                      scrape_numbers=True,
+                      scrape_emails=True,
+                      scrape_logos=True,
+                      region="US",
+                      max_results=2)
 
 instance.scrape()
 ```
@@ -45,22 +46,22 @@ Json objects are stored in the following format
 ```python
 [
   {
-    "url": "https://www.python.org/privacy/",
-    "emails": [
-      "psf@python.org"
-    ],
-    "numbers": [],
-    "logos": ['https://www.python.org/static/img/python-logo.png']
+    "url": "https://www.python.org/",
+    "emails": [ ],
+    "numbers": [ ],
+    "logos": [
+      "/static/img/python-logo.png"
+    ]
   },
   {
-    "url": "https://status.python.org/",
-    "emails": [],
-    "numbers": [
-      "+16505551234"
-    ],
-    "logos": []
+    "url": "https://www.python.org/psf/sponsorship/sponsors/",
+    "emails": [ ],
+    "numbers": [ ],
+    "logos": [
+      "/static/img/psf-logo.png"
+    ]
   }
- ]
+]
 ```
 ## **Validation**
 - Emails are validated against modern specs with the [email_validator library](https://github.com/JoshData/python-email-validator "email_validator library")
