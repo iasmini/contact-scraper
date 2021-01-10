@@ -28,7 +28,7 @@ instance = Controller(starting_urls=['https://www.python.org/'],
                       scrape_emails=True,
                       scrape_logos=True,
                       region="US",
-                      max_results=2)
+                      max_results=5)
 
 instance.scrape()
 ```
@@ -50,7 +50,7 @@ Json objects are stored in the following format
     "emails": [ ],
     "numbers": [ ],
     "logos": [
-      "/static/img/python-logo.png"
+      "https://www.python.org/static/img/python-logo.png"
     ]
   },
   {
@@ -58,8 +58,34 @@ Json objects are stored in the following format
     "emails": [ ],
     "numbers": [ ],
     "logos": [
-      "/static/img/psf-logo.png"
+      "https://www.python.org/static/img/psf-logo.png"
     ]
+  },
+  {
+    "url": "https://www.python.org/privacy/",
+    "emails": [
+      "psf@python.org"
+    ],
+    "numbers": [ ],
+    "logos": [
+      "https://www.python.org/static/img/python-logo.png"
+    ]
+  },
+  {
+    "url": "https://www.python.org/about/legal/",
+    "emails": [ ],
+    "numbers": [ ],
+    "logos": [
+      "https://www.python.org/static/img/psf-logo.png"
+    ]
+  },
+  {
+    "url": "https://status.python.org/",
+    "emails": [ ],
+    "numbers": [
+      "+16505551234"
+    ],
+    "logos": [ ]
   }
 ]
 ```

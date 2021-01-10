@@ -7,6 +7,6 @@ instance = Controller(starting_urls=['https://www.python.org/'],
                       scrape_emails=True,
                       scrape_logos=True,
                       region="US",
-                      max_results=2)
+                      max_results=5)
 
 instance.scrape()

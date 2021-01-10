@@ -5,8 +5,10 @@ import json
 import logging
 import os
 import phonenumbers as pn
+import re
 
 from email_validator import validate_email, EmailNotValidError
+from urllib.parse import urljoin
 
 
 class ContactscraperPipeline:
@@ -63,8 +65,9 @@ class ContactscraperPipeline:
             try:
                 num = pn.parse(number, None)
                 known_numbers = self.url_map[url]['numbers']
-                if pn.is_valid_number(num) and \
-                        number not in known_numbers:
+                if pn.is_valid_number(num) and number not in known_numbers:
+                    number = str(number)
+                    number = re.sub(r'[^\d()+]+', ' ', number)
                     known_numbers.add(number)
             except Exception as e:
                 logging.debug(f'Number not parsed: \n\t{str(e)}')
@@ -72,6 +75,7 @@ class ContactscraperPipeline:
         for logo in logos:
             known_logos = self.url_map[url]['logos']
             if logo not in known_logos:
-                known_logos.add(logo)
+                url_logo = urljoin(url, logo)
+                known_logos.add(url_logo)
 
         return item
