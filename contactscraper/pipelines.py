@@ -3,7 +3,6 @@
 
 import json
 import logging
-import os
 import phonenumbers as pn
 import re
 
@@ -13,13 +12,7 @@ from urllib.parse import urljoin
 
 class ContactscraperPipeline:
     def open_spider(self, spider):
-        filename = 'output.json'
-        try:
-            os.remove(filename)
-        except OSError:
-            pass
-
-        self.file = open(filename, 'a+')
+        self.file = open('output.json', 'a+')
         self.emails = set()
         self.numbers = set()
         self.logos = set()
