@@ -25,12 +25,9 @@ You must set the configurations in contactscraper/controller/config.ini:
 
 `max_results` is the maximum number of unique URLs that contain either emails or phone numbers you\'d like to receive. Must be an integer greater than 0.
 
-Run the command below on the command line
+Run the command below on the command line at the project root folder:
 ```shell
-docker run -d \
-  --name contact-scraper \
-  --mount type=bind,source="$(pwd)"/,target=/code \
-  contact-scraper:latest
+docker run -d --mount type=bind,source="$(pwd)"/,target=/code contact-scraper:latest
 ```
 
 Results get written as a list of JSON objects in *output.json* saved at the project root.
