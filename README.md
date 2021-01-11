@@ -7,40 +7,33 @@ contact-scraper gathers all available logos, phone numbers and emails from a giv
 This tool is for educational and/or legal scraping purposes only, usage of contact-scraper for scraping targets without prior mutual consent is illegal. Developers of contact-scraper and its dependencies assume no liability and are not responsible for any misuse or damage caused by this program.
 
 ## **Installation**
-To install Scrapy on Ubuntu (or Ubuntu-based) systems, you need to install these dependencies:
-1. `sudo apt-get install python3 python3-dev python3-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev`
-2. `git clone https://github.com/iasmini/contact-scraper.git`
-3. `cd contact-scraper`
-4. `pip install -r requirements.txt`
+1. To install Scrapy on Ubuntu (or Ubuntu-based) systems, you need to install these dependencies:   
+    `sudo apt-get install python3 python3-dev python3-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev`
+2. Clone the project:  
+    `git clone https://github.com/iasmini/contact-scraper.git`
+3. Install [Docker](https://docs.docker.com/engine/install/)
 
 
 ## **Usage**
-***For quick startup edit/run [example.py](https://github.com/iasmini/contact-scraper/blob/master/example.py)***
+You must set the urls in contactscraper/controller/websites.txt:  
+`starting_urls` is a list of URLs you\'d like to start scraping from. A spider will be deployed on each URL, it won\'t deviate to any links that don\'t contain the root url. For example, passing in `https://www.python.org/privacy/` will allow any URL with the root domain of `python.org` to be scraped.
 
-
-#### Scan a URL
-
-```python
-from contactscraper.controller import Controller
-
-instance = Controller(starting_urls=['https://www.python.org/'],
-                      scrape_numbers=True,
-                      scrape_emails=True,
-                      scrape_logos=True,
-                      region="US",
-                      max_results=5)
-
-instance.scrape()
-```
-`starting_urls` is a list of URLs you\'d like to start scraping from. A spider will be deployed on each URL, it won\'t deviate to any links that don\'t contain the root url. For example, passing in `['https://www.python.org/privacy/']` will allow any URL with the root domain of `python.org` to be scraped.
-
+You must set the configurations in contactscraper/controller/config.ini:  
 `scrape_logos`, `scrape_emails` & `scrape_numbers` are booleans depicting if you want to gather logos, emails or numbers, respectively.
 
 `region` is the [region](https://github.com/daviddrysdale/python-phonenumbers/tree/dev/python/phonenumbers/shortdata) you wish to validate numbers against, most of NA uses "US" region validation.
 
 `max_results` is the maximum number of unique URLs that contain either emails or phone numbers you\'d like to receive. Must be an integer greater than 0.
 
-Results get written as a list of JSON objects in output.json
+Run the command below on the command line
+```shell
+docker run -d \
+  --name contact-scraper \
+  --mount type=bind,source="$(pwd)"/,target=/code \
+  contact-scraper:latest
+```
+
+Results get written as a list of JSON objects in *output.json* saved at the project root.
 
 Json objects are stored in the following format
 ```python
