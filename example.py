@@ -36,3 +36,12 @@ instance = Controller(starting_urls=starting_urls,
                       max_results=max_results)
 
 instance.scrape()
+
+# save the results in one single list
+with open('output.json', 'r') as file:
+    filedata = file.read()
+
+filedata = filedata.replace('][', ',')
+
+with open('output.json', 'w') as file:
+    file.write(filedata)

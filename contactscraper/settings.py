@@ -30,28 +30,28 @@ CONCURRENT_REQUESTS = 1
 # See also autothrottle settings and docs
 DOWNLOAD_DELAY = 2
 # The download delay setting will honor only one of:
-#CONCURRENT_REQUESTS_PER_DOMAIN = 16
-#CONCURRENT_REQUESTS_PER_IP = 16
+# CONCURRENT_REQUESTS_PER_DOMAIN = 16
+# CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
 COOKIES_ENABLED = True
 
-
-
 # Override the default request headers:
 DEFAULT_REQUEST_HEADERS = {
-  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-  'Accept-Language': 'en',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'en',
 }
 
 # Enable spider middlewares
 SPIDER_MIDDLEWARES = {
-                'scrapy.spidermiddlewares.offsite.OffsiteMiddleware' : 810,
-                'scrapy.downloadermiddlewares.retry.RetryMiddleware' : 915,
-            }
+    'scrapy.spidermiddlewares.offsite.OffsiteMiddleware': 810,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 915,
+}
 
 # Enable item pipelines
 ITEM_PIPELINES = {
-   'contactscraper.pipelines.ContactscraperPipeline': 300,
+    'contactscraper.pipelines.ContactscraperPipeline': 300,
 }
 
+LOG_STDOUT = True
+LOG_FILE = '/tmp/contact-scraper.log'

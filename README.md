@@ -38,7 +38,7 @@ instance.scrape()
 
 `region` is the [region](https://github.com/daviddrysdale/python-phonenumbers/tree/dev/python/phonenumbers/shortdata) you wish to validate numbers against, most of NA uses "US" region validation.
 
-`max_results` is the maximum number of unique URLs that contain either emails or phone numbers you\'d like to receive.
+`max_results` is the maximum number of unique URLs that contain either emails or phone numbers you\'d like to receive. Must be an integer greater than 0.
 
 Results get written as a list of JSON objects in output.json
 

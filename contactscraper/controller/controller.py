@@ -60,7 +60,6 @@ class Controller:
                 ext = tldextract.extract(starting_url)
                 root = '.'.join(ext[2:])
                 try:
-
                     yield runner.crawl(ContactSpider,
                                        root=root,
                                        region=self.region,
