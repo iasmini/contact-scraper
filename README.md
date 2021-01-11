@@ -7,10 +7,14 @@ contact-scraper gathers all available logos, phone numbers and emails from a giv
 This tool is for educational and/or legal scraping purposes only, usage of contact-scraper for scraping targets without prior mutual consent is illegal. Developers of contact-scraper and its dependencies assume no liability and are not responsible for any misuse or damage caused by this program.
 
 ## **Installation**
-1. To install Scrapy on Ubuntu (or Ubuntu-based) systems, you need to install these dependencies:   
-    `sudo apt-get install python3 python3-dev python3-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev`
+1. To install Scrapy on Ubuntu (or Ubuntu-based) systems, you need to install these dependencies:
+   ```shell
+    sudo apt-get install python3 python3-dev python3-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev
+   ```
 2. Clone the project:  
-    `git clone https://github.com/iasmini/contact-scraper.git`
+   ```shell
+    git clone https://github.com/iasmini/contact-scraper.git
+   ```
 3. Install [Docker](https://docs.docker.com/engine/install/)
 
 
