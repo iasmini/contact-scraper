@@ -31,7 +31,7 @@ You must set the configurations in contactscraper/controller/config.ini:
 
 Run the command below on the command line at the project root folder:
 ```shell
-docker run -d --mount type=bind,source="$(pwd)"/,target=/code contact-scraper:latest
+docker run -d --mount type=bind,source="$(pwd)"/,target=/code iasmini/contact-scraper:latest
 ```
 
 Results get written as a list of JSON objects in *output.json* saved at the project root.
