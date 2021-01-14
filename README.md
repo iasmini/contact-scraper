@@ -16,6 +16,10 @@ This tool is for educational and/or legal scraping purposes only, usage of conta
     git clone https://github.com/iasmini/contact-scraper.git
    ```
 3. Install [Docker](https://docs.docker.com/engine/install/)
+4. It's not mandatory, but you can rebuild the image at the project root folder (contact-scraper) using:
+   ```shell
+   docker build -t contact-scraper .
+   ```
 
 
 ## **Usage**
